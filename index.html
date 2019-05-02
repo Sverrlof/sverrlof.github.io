@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <script>
+
+        function myFirstJS() {
+
+            var firstName = document.forms["RegForm"]["firstName"];
+            var lastname = document.forms["RegForm"]["lastName"];
+            var eMail = document.forms["RegForm"]["eMail"];
+            var phoneNumber = document.forms["RegForm"]["phoneNumber"];
+            var gender = document.forms["RegForm"]["gender"];
+
+
+            if (firstName.value == "") {
+                window.alert("Please enter your first name.");
+                firstName.focus();
+                return false;
+            }
+
+            if (lastname.value == "") {
+                window.alert("Please enter your last name.")
+                lastname.focus();
+                return false;
+            }
+
+
+            if (eMail.value == "") {
+                window.alert("Please enter a valid e-mail address.");
+                eMail.focus();
+                return false;
+            }
+
+            if (eMail.value.indexOf("@", 0) < 0) {
+                window.alert("Please enter a valid e-mail address.");
+                eMail.focus();
+                return false;
+            }
+
+            if (eMail.value.indexOf(".", 0) < 0) {
+                window.alert("Please enter a valid e-mail address.");
+                eMail.focus();
+                return false;
+            }
+
+            if (phoneNumber.value == "") {
+                window.alert("Please enter your telephone number.");
+                phoneNumber.focus();
+                return false;
+            }
+
+            if (gender.selectedIndex < 1) {
+                alert("You have to chose gender.");
+                gender.focus();
+                return false;
+            }
+
+            else {
+                return true;
+            }
+        }
+
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+
+
+</head>
+
+<body>
+
+    <h3 style="text-align: center">PÅMELDINGSSKJEMA FOR NYHETSBREV</h3>
+
+    <div class="container">
+        <form name="RegForm"  onsubmit="return myFirstJS()" action="/submit.php" method="post">
+
+            <label for="firstName">Fornavn</label>
+            <input type="text" id="fname" name="firstName" placeholder="Ditt fornavn..">
+
+            <label for="lastName">Etternavn </label>
+            <input type="text" id="lastName" name="lastName" placeholder="Ditt etternavn..">
+
+            <label for="eMail">Email</label>
+            <input type="text" id="eMail" name="eMail" placeholder="Din email..">
+
+            <label for="phoneNumber">Telefon</label>
+            <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Ditt telefonnummer..">
+
+
+            <label for="gender">Kjønn</label>
+            <select id="gender" name="gender">
+                <option value="chose">Trykk her for å velge kjønn..</option>
+                <option value="mann">Mann</option>
+                <option value="dame">Dame</option>
+                <option value="ingen">Ønsker ikke oppgi</option>
+            </select>
+
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </form>
+    </div>
+
+</body>
+
+
+
+
+</html>
